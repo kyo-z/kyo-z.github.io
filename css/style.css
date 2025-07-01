@@ -1,0 +1,460 @@
+/* ---------------- RESET ---------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #fce4f7 0%, #c89ee6 100%);
+  min-height: 100vh;
+  color: #3a0ca3;
+  overflow: hidden;
+  position: relative; /* Para o fundo de corações funcionar */
+}
+
+/* Fundo com corações flutuando */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 24 24' fill='%23ff69b4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21s-6-4.6-9.3-8.5C-1.1 7.6 3.6 0 12 7.1 20.4 0 25.1 7.6 21.3 12.5 18 16.4 12 21 12 21z'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  animation: coracoesFlutuando 80s linear infinite;
+  opacity: 0.12;
+}
+
+@keyframes coracoesFlutuando {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -3000px; }
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #9d4eddcc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(155, 89, 182, 0.4);
+}
+
+.senha-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.senha-container input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 2px solid #7b2ff7;
+  width: 160px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.senha-container .olho {
+  cursor: pointer;
+  font-size: 1.3rem;
+  user-select: none;
+}
+
+.senha-container button {
+  background: #9d4edd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 3px 6px #7b2ff7aa;
+  /* BOTÕES COM EFEITO ARCO-ÍRIS (estilo anos 2000) */
+  background: linear-gradient(45deg, #ff00c8, #00e5ff, #ff9900, #adff2f, #ff00c8);
+  background-size: 300% 300%;
+  animation: arcoIris 5s linear infinite;
+  text-shadow: 0 0 4px #000000aa;
+  transition: box-shadow 0.3s ease;
+}
+
+.senha-container button:hover {
+  box-shadow: 0 0 20px #ff00c8ff;
+}
+#emojiAmor {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000;
+}
+
+
+/* MODAL E FUNDO */
+#modalFundo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
+  display: none;
+}
+
+#modalAmor {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff0f8;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #c89ee6;
+  z-index: 1000;
+  display: none;
+  max-width: 90%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #4a148c;
+  font-weight: 600;
+}
+
+#modalAmor button {
+  margin-top: 16px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #9d4edd;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 10px #7b2ff7cc;
+  transition: background-color 0.3s ease;
+}
+
+#modalAmor button:hover {
+  background-color: #7b2ff7cc;
+}
+/* ---------------- CONTEÚDO PRINCIPAL ---------------- */
+main#conteudo {
+  margin-top: 70px;
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  gap: 20px;
+  height: calc(100vh - 70px);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10; /* garantir que fique sobre o fundo */
+}
+
+/* ---------------- LADO ESQUERDO ---------------- */
+.lado-esquerdo {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 500px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+.fotos12-container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.foto-box {
+  flex: 1;
+  background: #f7e8ffcc;
+  border-radius: 16px;
+  padding: 20px 16px 16px 16px;
+  box-shadow: 0 0 14px #c89ee6aa;
+  color: #4a148c;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 480px;
+
+  /* Bordas coloridas piscantes */
+  border: 4px dashed #ff00c8;
+  animation: bordaPiscante 1.5s infinite;
+  position: relative; /* para estrelinhas */
+  z-index: 1;
+}
+
+.foto-box img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 14px #9d4edd99;
+}
+
+.foto-box p {
+  text-align: justify;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1.4;
+}
+
+/* ---------------- TEMPORIZADOR e EU TE AMO ---------------- */
+.temporizador {
+  background: #7b2ff7cc;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 0 12px #9d4edd88;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.eu-te-amo {
+  background: #9d4eddcc;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #7b2ff7cc;
+  user-select: none;
+}
+
+.eu-te-amo:hover {
+  background-color: #7b2ff7cc;
+  color: #fffcee;
+}
+
+@keyframes pularCora {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25) rotate(8deg); }
+}
+
+/* ---------------- LADO DIREITO ---------------- */
+.lado-direito {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 500px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+
+.topo-direito {
+  display: flex;
+  gap: 14px;
+  flex: none;
+  height: 400px;
+}
+
+.foto3, .quadro-desenho, .galeria {
+  flex: 1;
+  background: #f7e8ffcc;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 0 18px #c89ee6aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #4a148c;
+  font-weight: 600;
+
+  /* Bordas coloridas piscantes */
+  border: 4px dashed #ff00c8;
+  animation: bordaPiscante 1.5s infinite;
+  position: relative; /* para estrelinhas */
+  z-index: 1;
+}
+
+.foto3 img {
+  width: 100%;
+  height: 260px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 6px;
+  box-shadow: 0 6px 30px #7b2ff7cc;
+}
+
+.foto3 audio {
+  width: 100%;
+}
+
+.foto3 p {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.quadro-desenho canvas {
+  width: 100%;
+  height: 295px;
+  border-radius: 12px;
+  background: #f7e8ffcc;
+  border: 2px solid #9d4edd;
+  box-sizing: border-box;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.botoes-desenho {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.botoes-desenho button {
+  background: #9d4edd;
+
+  /* Botões arco-íris */
+  background: linear-gradient(45deg, #ff7f00, #ff9900, #ff6600);
+  background-size: 300% 300%;
+  animation: arcoIris 5s linear infinite;
+
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px #7b2ff7bb;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  text-align: center;
+  text-shadow: 0 0 4px #000000aa;
+}
+
+.botoes-desenho button:hover {
+  box-shadow: 0 0 20px #ff00c8ff;
+  background-position: 100% 50%;
+}
+
+/* ---------------- GALERIA ---------------- */
+.galeria h2 {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+}
+
+.galeria img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px #9d4eddaa;
+}
+
+.galeria-buttons {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+}
+
+.galeria-buttons button {
+  background: #9d4edd;
+
+  /* Botões arco-íris */
+  background: background: linear-gradient(45deg, #ff7f00, #ff9900, #ff6600);
+  background-size: 300% 300%;
+  animation: arcoIris 5s linear infinite;
+
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px #7b2ff7bb;
+  transition: background-color 0.3s ease;
+  text-shadow: 0 0 4px #000000aa;
+}
+
+.galeria-buttons button:hover {
+  box-shadow: 0 0 20px #ff00c8ff;
+  background-position: 100% 50%;
+}
+
+/* ---------------- CARTINHAS e MÚSICAS ---------------- */
+.baixo-direito {
+  display: flex;
+  gap: 12px;
+  flex: none;
+  height: 220px;
+}
+
+.box-cartinhas, .box-musicas {
+  flex: 1;
+  background: #f0e5ffcc;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 0 12px #7b2ff7aa;
+  font-weight: 600;
+  color: #6f42c1;
+  overflow-y: auto;
+
+  /* Bordas coloridas piscantes */
+  border: 4px dashed #ff00c8;
+  animation: bordaPiscante 1.5s infinite;
+  position: relative; /* para estrelinhas */
+  z-index: 1;
+}
+
+.box-cartinhas {
+  background: #e7d7ffcc;
+  color: #4a148c;
+  font-style: italic;
+}
+
+/* ---------------- ESTRELINHAS NOS BOXES ---------------- */
+.foto-box::before, .foto-box::after,
+.foto3::before, .foto3::after,
+.quadro-desenho::before, .quadro-desenho::after,
+.galeria::before, .galeria::after,
+.box-cartinhas::before, .box-cartinhas::after,
+.box-musicas::before, .box-musicas::after {
+  content: "";
+  font-size: 1.4rem;
+  position: absolute;
+  color: #ff69b4;
+  text-shadow: 0 0 5px #ff69b4cc;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.foto-box::before,
+.foto3::before,
+.quadro-desenho::before,
+.galeria::
+ 

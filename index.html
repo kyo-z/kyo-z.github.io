@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kau de Lili</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div>kau de lili</div>
+    <div class="senha-container" id="areaSenha">
+      <input id="senha" type="password" placeholder="Digite a senha" />
+      <span class="olho" id="btnOlho">👁️</span>
+      <button id="btnEntrar">Entrar</button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- Emoji coração visível e clicável -->
+    <span class="emoji-coracao" id="emojiAmor">❤️</span>
+  </main>
+
+  <!-- Modal e fundo -->
+  <div id="modalFundo"></div>
+  <div id="modalAmor">
+    <p>
+      Pra nunca esquecermos de como tudo aconteceu. Que fique eternizado em todos os lugares possíveis: nos vídeos fofos, nas tatuagens, nas fotos, nas postagens, nas árvores, nas músicas, nos filmes, no Brasil, no Japão… e agora até em um site. s2
+    </p>
+    <button id="fecharModal">Fechar</button>
+  </div>
+
+  <script>
+    const senhaCorreta = "kau de lili 123";
+    const imagens = ["img/fotoolho1.jpeg", "img/fotoolho2.jpeg"];
+    const fotosAlternativasFoto3 = ["img/foto 3.1.jpeg", "img/foto3.2.jpeg", "img/foto 3.3.jpeg"];
+    let indiceFoto3 = 0;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const senhaInput = document.getElementById("senha");
+      const btnOlho = document.getElementById("btnOlho");
+      const btnEntrar = document.getElementById("btnEntrar");
+      const emoji = document.getElementById("emojiAmor");
+      const modal = document.getElementById("modalAmor");
+      const fundo = document.getElementById("modalFundo");
+      const areaSenha = document.getElementById("areaSenha");
+
+      // Mostrar/ocultar senha
+      btnOlho.addEventListener("click", () => {
+        senhaInput.type = senhaInput.type === "password" ? "text" : "password";
+      });
+
+      // Abrir modal ao clicar no coração
+      emoji.addEventListener("click", () => {
+        modal.style.display = "block";
+        fundo.style.display = "block";
+      });
+
+      // Fechar modal clicando no fundo ou botão fechar
+      fundo.addEventListener("click", fecharModal);
+      document.getElementById("fecharModal").addEventListener("click", fecharModal);
+
+      function fecharModal() {
+        modal.style.display = "none";
+        fundo.style.display = "none";
+      }
+
+      // Botão entrar verifica senha
+      btnEntrar.addEventListener("click", () => {
+        if (senhaInput.value.trim() === senhaCorreta) {
+          areaSenha.remove();
+          emoji.remove();
+          mostrarSegundaParte();
+        } else {
+          alert("Senha errada, bebê :C Tenta de novo!");
+        }
+      });
+    });
+
+    function mostrarSegundaParte() {
+      const conteudo = document.getElementById("conteudo");
+      conteudo.innerHTML = `
+        <div class="lado-esquerdo">
+          <div class="fotos12-container">
+            <div class="foto-box">
+              <img src="${imagens[0]}" alt="Foto 1" />
+              <p>⭐ line<br>⭐ .br<br>⭐ Onde Judasbateuasbotas.<br>⭐ Vive de fotossíntese.<br>⭐ Instável.<br>⭐ Míope.<br>⭐ Odeia LoL.</p>
+            </div>
+            <div class="foto-box">
+              <img src="${imagens[1]}" alt="Foto 2" />
+              <p>⭐ kauezito<br>⭐ .JP<br>⭐ Plantação de arroz.<br>⭐ Come muito bem s2<br>⭐ Bizarro de tão calmo ??<br>⭐ Mais míope.<br>⭐ Joga de Gragas.<br></p>
+            </div>
+          </div>
+          <div class="temporizador">
+           ele me aguenta há <span id="dias">0</span> dias, <span id="horas">00</span>h:<span id="minutos">00</span>m:<span id="segundos">00</span>s 💖
+          </div>
+          <div class="eu-te-amo" id="euTeAmo">Eu te amo</div>
+        </div>
+        <div class="lado-direito">
+          <div class="topo-direito">
+            <div class="foto3">
+              <img id="foto3img" src="${fotosAlternativasFoto3[0]}" alt="Foto 3" />
+              <audio controls preload="none">
+                <source src="img/audio/musica.mp3" type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
+              <p>𝔂𝓸𝓾 𝓪𝓷𝓭 𝓶𝓮✨</p>
+            </div>
+
+            <div class="quadro-desenho">
+              <h2>🖌️ Desenho</h2>
+              <canvas id="canvasDesenho" width="280" height="360" style="border: 2px solid #9d4edd; border-radius: 12px; background: #f7e8ffcc;"></canvas>
+              <div class="botoes-desenho">
+                <button id="btnSalvar">Salvar</button>
+                <button id="btnLimpar">Limpar</button>
+              </div>
+            </div>
+
+            <div class="galeria">
+              <h2>fotinhas</h2>
+              <img id="imagemGaleria" src="img/galeria/galeria1.jpg" alt="Galeria" />
+              <div class="galeria-buttons">
+                <button onclick="mudarImagem(-1)">⟵</button>
+                <button onclick="mudarImagem(1)">⟶</button>
+              </div>
+            </div>
+          </div>
+          <div class="baixo-direito">
+            <div class="box-cartinhas">
+              <h3>🍓recadinhos pra ele s2</h3>
+              <p>"voce é meu gatinho de botas, meu chocoreto cake com straberys encima, te suki totemo, voce é o shapacho que falta em mim.. meu baby shark boy, e sabe oque mais? e tbm.. é meu lov, my baby, my big litller pop star, eu quero VOCE.”</p>
+              <p>“Se eu tivesse que escolher de novo, ainda seria você. Sempre você.”</p>
+              <p>“🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓”</p>
+            </div>
+            <div class="box-musicas">
+              <h3>🎶 Músicas que me lembram você</h3>
+              <ul>
+                <li>💗 <a href="https://www.bing.com/videos/riverview/relatedvideo?q=link+da+msuica+bag+caliro+&mid=...">Bags - Clairo</a></li>
+                <li>🌙 <a href="https://www.bing.com/...">Malvado amor - anny cover</a></li>
+                <li>✨ <a href="https://www.youtube.com/watch?v=Q5VpgPaD8NM">Me encontra - Charlie Brown jr</a></li>
+                <li>🍓 <a href="https://www.bing.com/...">2036 - Japa</a></li>
+                <li>🐾 <a href="https://www.bing.com/...">Lisboa Madri - Anavitória</a></li>
+                <li>🐈 <a href="https://www.bing.com/...">Flamin Hot Cheetos - Clairo</a></li>
+                <li>🌸 <a href="https://www.bing.com/...">Chihiro - Billie Eilish</a></li>
+                <li>🌈 <a href="https://www.bing.com/...">Undressed - Sombr</a></li>
+                <li>🐇 <a href="https://www.bing.com/...">Como tudo deve ser - Charlie Brown Jr</a></li>
+                <li>🌼 <a href="https://www.bing.com/...">The Only Exception - Paramore</a></li>
+                <li>🧸 <a href="https://www.bing.com/...">Sofia - Clairo</a></li>
+                <li>🍰 <a href="https://www.bing.com/...">Nervous - The Neighbourhood</a></li>
+                <li>💎 <a href="https://www.bing.com/...">Bubble Gum - Clairo</a></li>
+                <li>☁️ <a href="https://www.youtube.com/watch?v=ir11ZA4lJJk">BLUE - Billie Eilish</a></li>
+                <li>✨ <a href="https://www.bing.com/...">Sagrado Profano - Luísa & Kayblack</a></li>
+                <li>🎂 <a href="https://www.bing.com/...">Vem Desestressar - Veigh</a></li>
+                <li>🍒 <a href="https://www.youtube.com/watch?v=aCVyKWhCceE">Tentar Acreditar</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+
+      iniciarTemporizador();
+      ativarHoverFoto3();
+      ativarQuadroDesenho();
+
+      // "Eu te amo" clicável que muda de texto
+      const textosTeAmo = [
+        "Eu te amo",          // Português
+        "I love you",         // Inglês
+        "Te amo",             // Espanhol
+        "愛してる (Aishiteru)", // Japonês
+        "Я тебя люблю (Ya tebya lyublyu)", // Russo
+        "Ich liebe dich",     // Alemão
+        "我爱你 (Wǒ ài nǐ)",  // Chinês
+        "사랑해 (Saranghae)",   // Coreano
+        "ฉันรักเธอ (Chan rak ter)", // Tailandês
+        "Je t'aime",          // Francês
+      ];
+      const euTeAmo = document.getElementById("euTeAmo");
+      let indiceTeAmo = 0;
+
+      euTeAmo.addEventListener("click", () => {
+        indiceTeAmo = (indiceTeAmo + 1) % textosTeAmo.length;
+        euTeAmo.textContent = textosTeAmo[indiceTeAmo];
+      });
+    }
+
+    // Temporizador atualizado a cada segundo
+    function iniciarTemporizador() {
+      const inicio = new Date("2024-06-01T00:00:00");
+      const spanDias = document.getElementById("dias");
+      const spanHoras = document.getElementById("horas");
+      const spanMinutos = document.getElementById("minutos");
+      const spanSegundos = document.getElementById("segundos");
+
+      function atualizar() {
+        const agora = new Date();
+        const diff = agora - inicio;
+
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+        const segundos = Math.floor((diff / 1000) % 60);
+
+        spanDias.textContent = dias;
+        spanHoras.textContent = String(horas).padStart(2, "0");
+        spanMinutos.textContent = String(minutos).padStart(2, "0");
+        spanSegundos.textContent = String(segundos).padStart(2, "0");
+      }
+
+      atualizar();
+      setInterval(atualizar, 1000);
+    }
+
+    // Troca imagem foto 3 ao passar mouse
+    function ativarHoverFoto3() {
+      const foto3 = document.getElementById("foto3img");
+      if (foto3) {
+        foto3.addEventListener("mouseenter", () => {
+          indiceFoto3 = (indiceFoto3 + 1) % fotosAlternativasFoto3.length;
+          foto3.src = fotosAlternativasFoto3[indiceFoto3];
+        });
+      }
+    }
+
+    // Desenho no canvas
+    function ativarQuadroDesenho() {
+      const canvas = document.getElementById("canvasDesenho");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let desenhando = false;
+      let ultimoX = 0;
+      let ultimoY = 0;
+
+      function ajustarResolucaoCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.strokeStyle = "#9d4edd";
+        ctx.lineWidth = 3;
+      }
+
+      ajustarResolucaoCanvas();
+      window.addEventListener("resize", ajustarResolucaoCanvas);
+
+      function comecarDesenho(e) {
+        desenhando = true;
+        [ultimoX, ultimoY] = [e.offsetX, e.offsetY];
+      }
+
+      function desenhar(e) {
+        if (!desenhando) return;
+        ctx.beginPath();
+        ctx.moveTo(ultimoX, ultimoY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        [ultimoX, ultimoY] = [e.offsetX, e.offsetY];
+      }
+
+      function pararDesenho() {
+        desenhando = false;
+      }
+
+      canvas.addEventListener("mousedown", comecarDesenho);
+      canvas.addEventListener("mousemove", desenhar);
+      canvas.addEventListener("mouseup", pararDesenho);
+      canvas.addEventListener("mouseout", pararDesenho);
+
+      // Botões limpar e salvar
+      document.getElementById("btnLimpar").addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+      document.getElementById("btnSalvar").addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.download = "meu-desenho.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+
+    // Galeria
+    let indiceGaleria = 0;
+    const galeriaImgs = [];
+    for (let i = 1; i <= 27; i++) {
+      galeriaImgs.push(`img/galeria/galeria${i}.jpg`);
+    }
+
+    function mudarImagem(direcao) {
+      indiceGaleria = (indiceGaleria + direcao + galeriaImgs.length) % galeriaImgs.length;
+      document.getElementById("imagemGaleria").src = galeriaImgs[indiceGaleria];
+    }
+  </script>
+</body>
+</html>
