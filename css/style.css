@@ -104,8 +104,6 @@ header {
   z-index: 1000;
 }
 
-
-/* MODAL E FUNDO */
 #modalFundo {
   position: fixed;
   inset: 0;
@@ -148,7 +146,7 @@ header {
 #modalAmor button:hover {
   background-color: #7b2ff7cc;
 }
-/* ---------------- CONTEÚDO PRINCIPAL ---------------- */
+
 main#conteudo {
   margin-top: 70px;
   display: flex;
@@ -161,7 +159,6 @@ main#conteudo {
   z-index: 10; /* garantir que fique sobre o fundo */
 }
 
-/* ---------------- LADO ESQUERDO ---------------- */
 .lado-esquerdo {
   flex: 0 0 40%;
   display: flex;
@@ -220,7 +217,6 @@ main#conteudo {
   line-height: 1.4;
 }
 
-/* ---------------- TEMPORIZADOR e EU TE AMO ---------------- */
 .temporizador {
   background: #7b2ff7cc;
   color: white;
@@ -259,7 +255,6 @@ main#conteudo {
   50% { transform: scale(1.25) rotate(8deg); }
 }
 
-/* ---------------- LADO DIREITO ---------------- */
 .lado-direito {
   flex: 1;
   display: flex;
@@ -289,8 +284,6 @@ main#conteudo {
   align-items: center;
   color: #4a148c;
   font-weight: 600;
-
-  /* Bordas coloridas piscantes */
   border: 4px dashed #ff00c8;
   animation: bordaPiscante 1.5s infinite;
   position: relative; /* para estrelinhas */
@@ -381,7 +374,6 @@ main#conteudo {
   background: background: linear-gradient(45deg, #ff7f00, #ff9900, #ff6600);
   background-size: 300% 300%;
   animation: arcoIris 5s linear infinite;
-
   border: none;
   color: white;
   font-size: 1.2rem;
@@ -414,8 +406,6 @@ main#conteudo {
   font-weight: 600;
   color: #6f42c1;
   overflow-y: auto;
-
-  /* Bordas coloridas piscantes */
   border: 4px dashed #ff00c8;
   animation: bordaPiscante 1.5s infinite;
   position: relative; /* para estrelinhas */
