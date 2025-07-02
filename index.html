@@ -17,7 +17,6 @@
   </header>
 
   <main id="conteudo">
-    <!-- Emoji coração visível e clicável -->
     <span class="emoji-coracao" id="emojiAmor">❤️</span>
   </main>
 
@@ -65,7 +64,7 @@
         fundo.style.display = "none";
       }
 
-      // Botão entrar verifica senha
+    
       btnEntrar.addEventListener("click", () => {
         if (senhaInput.value.trim() === senhaCorreta) {
           areaSenha.remove();
@@ -211,7 +210,6 @@
       setInterval(atualizar, 1000);
     }
 
-    // Troca imagem foto 3 ao passar mouse
     function ativarHoverFoto3() {
       const foto3 = document.getElementById("foto3img");
       if (foto3) {
@@ -222,7 +220,6 @@
       }
     }
 
-    // Desenho no canvas
     function ativarQuadroDesenho() {
       const canvas = document.getElementById("canvasDesenho");
       if (!canvas) return;
@@ -269,7 +266,6 @@
       canvas.addEventListener("mouseup", pararDesenho);
       canvas.addEventListener("mouseout", pararDesenho);
 
-      // Botões limpar e salvar
       document.getElementById("btnLimpar").addEventListener("click", () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       });
