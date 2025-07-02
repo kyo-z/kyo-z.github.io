@@ -44,18 +44,15 @@
       const fundo = document.getElementById("modalFundo");
       const areaSenha = document.getElementById("areaSenha");
 
-      // Mostrar/ocultar senha
       btnOlho.addEventListener("click", () => {
         senhaInput.type = senhaInput.type === "password" ? "text" : "password";
       });
 
-      // Abrir modal ao clicar no coração
       emoji.addEventListener("click", () => {
         modal.style.display = "block";
         fundo.style.display = "block";
       });
 
-      // Fechar modal clicando no fundo ou botão fechar
       fundo.addEventListener("click", fecharModal);
       document.getElementById("fecharModal").addEventListener("click", fecharModal);
 
@@ -161,7 +158,6 @@
       ativarHoverFoto3();
       ativarQuadroDesenho();
 
-      // "Eu te amo" clicável que muda de texto
       const textosTeAmo = [
         "Eu te amo",          // Português
         "I love you",         // Inglês
@@ -183,7 +179,6 @@
       });
     }
 
-    // Temporizador atualizado a cada segundo
     function iniciarTemporizador() {
       const inicio = new Date("2024-06-01T00:00:00");
       const spanDias = document.getElementById("dias");
@@ -278,7 +273,6 @@
       });
     }
 
-    // Galeria
     let indiceGaleria = 0;
     const galeriaImgs = [];
     for (let i = 1; i <= 27; i++) {
