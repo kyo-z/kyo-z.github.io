@@ -12,10 +12,9 @@ body {
   min-height: 100vh;
   color: #3a0ca3;
   overflow: hidden;
-  position: relative; /* Para o fundo de corações funcionar */
+  position: relative; 
 }
 
-/* Fundo com corações flutuando */
 body::after {
   content: "";
   position: fixed;
@@ -84,7 +83,6 @@ header {
   cursor: pointer;
   font-weight: 700;
   box-shadow: 0 3px 6px #7b2ff7aa;
-  /* BOTÕES COM EFEITO ARCO-ÍRIS (estilo anos 2000) */
   background: linear-gradient(45deg, #ff00c8, #00e5ff, #ff9900, #adff2f, #ff00c8);
   background-size: 300% 300%;
   animation: arcoIris 5s linear infinite;
@@ -337,8 +335,6 @@ main#conteudo {
 
 .botoes-desenho button {
   background: #9d4edd;
-
-  /* Botões arco-íris */
   background: linear-gradient(45deg, #ff7f00, #ff9900, #ff6600);
   background-size: 300% 300%;
   animation: arcoIris 5s linear infinite;
@@ -361,7 +357,6 @@ main#conteudo {
   background-position: 100% 50%;
 }
 
-/* ---------------- GALERIA ---------------- */
 .galeria h2 {
   margin-bottom: 6px;
   font-size: 1.2rem;
@@ -383,8 +378,6 @@ main#conteudo {
 
 .galeria-buttons button {
   background: #9d4edd;
-
-  /* Botões arco-íris */
   background: background: linear-gradient(45deg, #ff7f00, #ff9900, #ff6600);
   background-size: 300% 300%;
   animation: arcoIris 5s linear infinite;
@@ -405,7 +398,6 @@ main#conteudo {
   background-position: 100% 50%;
 }
 
-/* ---------------- CARTINHAS e MÚSICAS ---------------- */
 .baixo-direito {
   display: flex;
   gap: 12px;
@@ -436,7 +428,6 @@ main#conteudo {
   font-style: italic;
 }
 
-/* ---------------- ESTRELINHAS NOS BOXES ---------------- */
 .foto-box::before, .foto-box::after,
 .foto3::before, .foto3::after,
 .quadro-desenho::before, .quadro-desenho::after,
