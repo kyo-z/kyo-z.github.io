@@ -23,7 +23,19 @@
   <div id="modalFundo"></div>
   <div id="modalAmor">
     <p>
-      Pra nunca esquecermos de como tudo aconteceu. Que fique eternizado em todos os lugares possíveis: nos vídeos fofos, nas tatuagens, nas fotos, nas postagens, nas árvores, nas músicas, nos filmes, no Brasil, no Japão… e agora até em um site. s2
+      Pra nunca esquecermos de como tudo aconteceu. Que fique eternizado em todos os lugares possíveis: nos vídeos fofos, nas tatuagens, nas fotos, nas postagens, nas árvores, nas músicas, nos filmes, no Brasil, no Japão… e agora até em um site. s2 Parece coisa de filme conhecer e se apaixonar por alguém que nunca vimos pessoalmente, alguém que nunca tocamos. Às vezes sinto que estamos vivendo um filme. É tão gostoso ter alguém para si, tão bom quando tudo gira em torno de alguém que a gente gosta tanto. É lindo, é puro, é genuíno — especialmente em meio a tanta maldade, inveja e dificuldades ao redor.
+
+Mesmo diante dos desentendimentos, superamos tudo até aqui e ainda estamos juntos. Eu acredito que as pessoas não se encontram por acaso; tudo tem um propósito. Existem mil possibilidades, e podemos conquistar qualquer coisa quando acreditamos com a alma.
+
+Às vezes é uma pena sentir-me tão limitada neste corpo, sempre cansada, sem saber como fazer diferente. Isso é difícil. Mas, mesmo assim, te incluo nos meus sonhos e nos meus planos. E juntos, nós construímos os mesmos planos, lado a lado.
+
+Minha cabeça é realmente uma bagunça. Por causa de tudo, comecei a perceber que estou sempre nervosa. Você também é, praticamente, meu único amigo todo esse tempo. É difícil colocar tudo isso sobre você e esperar que faça todos os papéis, mas acho que ainda não sei como parar — talvez nem tenha como.
+
+E é por isso que nem tudo são flores. É por isso que penso demais. É por isso que vejo nos detalhes coisas que sinto com tanta força. Sinto que, ao falar disso tantas vezes, acabou virando um costume, perdeu a potência e a importância que tinha da primeira vez. O problema é que, para mim, ainda parece a primeira vez — mesmo sendo a oitava vez que falo da mesma coisa.
+
+Eu sou uma bagunça. Uma bagunça consciente de que as pessoas não podem fazer milagres, ainda mais quando nem eu mesma me compreendo. Mas penso que, pelo menos, foi com você que todo esse caminho aconteceu.
+
+Obrigada, Shark Boy
     </p>
     <button id="fecharModal">Fechar</button>
   </div>
@@ -283,50 +295,7 @@
       document.getElementById("imagemGaleria").src = galeriaImgs[indiceGaleria];
     }
   </script>
-  <!-- ====== FAIXA FIXA NO RODAPÉ ====== -->
-<div id="faixaLembrar">📌 Leia só quando quiser lembrar da gente</div>
 
-<!-- ====== MODAL DA MENSAGEM LONGA ====== -->
-<div id="modalMensagemFundo"></div>
-<div id="modalMensagem">
-  <div class="conteudoMensagem">
-    <p>Parece coisa de filme conhecer e se apaixonar por alguém que nunca vimos pessoalmente, alguém que nunca tocamos. Às vezes sinto que estamos vivendo um filme. É tão gostoso ter alguém para si, tão bom quando tudo gira em torno de alguém que a gente gosta tanto. É lindo, é puro, é genuíno — especialmente em meio a tanta maldade, inveja e dificuldades ao redor.</p>
-    <p>Mesmo diante dos desentendimentos, superamos tudo até aqui e ainda estamos juntos. Eu acredito que as pessoas não se encontram por acaso; tudo tem um propósito. Existem mil possibilidades, e podemos conquistar qualquer coisa quando acreditamos com a alma.</p>
-    <p>Às vezes é uma pena sentir-me tão limitada neste corpo, sempre cansada, sem saber como fazer diferente. Isso é difícil. Mas, mesmo assim, te incluo nos meus sonhos e nos meus planos. E juntos, nós construímos os mesmos planos, lado a lado.</p>
-    <p>Minha cabeça é realmente uma bagunça. Por causa de tudo, comecei a perceber que estou sempre nervosa. Você também é, praticamente, meu único amigo todo esse tempo. É difícil colocar tudo isso sobre você e esperar que faça todos os papéis, mas acho que ainda não sei como parar — talvez nem tenha como.</p>
-    <p>E é por isso que nem tudo são flores. É por isso que penso demais. É por isso que vejo nos detalhes coisas que sinto com tanta força. Sinto que, ao falar disso tantas vezes, acabou virando um costume, perdeu a potência e a importância que tinha da primeira vez. O problema é que, para mim, ainda parece a primeira vez — mesmo sendo a oitava vez que falo da mesma coisa.</p>
-    <p>Eu sou uma bagunça. Uma bagunça consciente de que as pessoas não podem fazer milagres, ainda mais quando nem eu mesma me compreendo. Mas penso que, pelo menos, foi com você que todo esse caminho aconteceu.</p>
-    <p>Obrigada, Shark Boy. 🖤</p>
-    <button id="fecharMensagem">Fechar</button>
-  </div>
-</div>
-
-<script>
-  /* === LISTENERS DA FAIXA E DO MODAL (independente do resto do seu JS) === */
-  document.addEventListener("DOMContentLoaded", () => {
-    const faixa = document.getElementById("faixaLembrar");
-    const fundoMsg = document.getElementById("modalMensagemFundo");
-    const modalMsg = document.getElementById("modalMensagem");
-    const fecharMsg = document.getElementById("fecharMensagem");
-
-    function abrirMensagem() {
-      modalMsg.style.display = "block";
-      fundoMsg.style.display = "block";
-    }
-    function fecharMensagem() {
-      modalMsg.style.display = "none";
-      fundoMsg.style.display = "none";
-    }
-
-    faixa.addEventListener("click", abrirMensagem);
-    fecharMsg.addEventListener("click", fecharMensagem);
-    fundoMsg.addEventListener("click", fecharMensagem);
-
-    // Acessibilidade: ESC fecha o modal
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") fecharMensagem();
-    });
-  });
 </script>
 </body>
 </html>
